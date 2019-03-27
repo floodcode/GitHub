@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		BF562852224B669200578B06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF562851224B669200578B06 /* AppDelegate.swift */; };
-		BF562854224B669200578B06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF562853224B669200578B06 /* ViewController.swift */; };
+		BF562854224B669200578B06 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF562853224B669200578B06 /* LoginViewController.swift */; };
 		BF562857224B669200578B06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF562855224B669200578B06 /* Main.storyboard */; };
 		BF562859224B669200578B06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF562858224B669200578B06 /* Assets.xcassets */; };
 		BF56285C224B669300578B06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF56285A224B669200578B06 /* LaunchScreen.storyboard */; };
 		BF562867224B669300578B06 /* GitHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF562866224B669300578B06 /* GitHubTests.swift */; };
+		BF562872224B75FD00578B06 /* RepoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF562871224B75FD00578B06 /* RepoTableViewController.swift */; };
+		BF562875224B785300578B06 /* RepoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF562874224B785300578B06 /* RepoTableViewCell.swift */; };
+		BF562877224B81C100578B06 /* RepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF562876224B81C100578B06 /* RepoViewController.swift */; };
+		BF56287A224B8BF000578B06 /* NewRepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF562878224B875200578B06 /* NewRepoViewController.swift */; };
+		BF56287C224BC74A00578B06 /* CommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56287B224BC74A00578B06 /* CommitTableViewCell.swift */; };
+		BF56287E224BCF1E00578B06 /* CommitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56287D224BCF1E00578B06 /* CommitTableViewController.swift */; };
 		F834752883AB89CD48BAB335 /* Pods_GitHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BD327A997E688BDFF8EF5E /* Pods_GitHub.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +36,7 @@
 		B4F836E0BFE32D05AB2FB665 /* Pods-GitHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub.debug.xcconfig"; path = "Target Support Files/Pods-GitHub/Pods-GitHub.debug.xcconfig"; sourceTree = "<group>"; };
 		BF56284E224B669200578B06 /* GitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF562851224B669200578B06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BF562853224B669200578B06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF562853224B669200578B06 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BF562856224B669200578B06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF562858224B669200578B06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF56285B224B669300578B06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +44,12 @@
 		BF562862224B669300578B06 /* GitHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF562866224B669300578B06 /* GitHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubTests.swift; sourceTree = "<group>"; };
 		BF562868224B669300578B06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF562871224B75FD00578B06 /* RepoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableViewController.swift; sourceTree = "<group>"; };
+		BF562874224B785300578B06 /* RepoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableViewCell.swift; sourceTree = "<group>"; };
+		BF562876224B81C100578B06 /* RepoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewController.swift; sourceTree = "<group>"; };
+		BF562878224B875200578B06 /* NewRepoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRepoViewController.swift; sourceTree = "<group>"; };
+		BF56287B224BC74A00578B06 /* CommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewCell.swift; sourceTree = "<group>"; };
+		BF56287D224BCF1E00578B06 /* CommitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewController.swift; sourceTree = "<group>"; };
 		C3BD327A997E688BDFF8EF5E /* Pods_GitHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6F6C576093531DD39A08D01 /* Pods-GitHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub.release.xcconfig"; path = "Target Support Files/Pods-GitHub/Pods-GitHub.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,7 +79,6 @@
 				B4F836E0BFE32D05AB2FB665 /* Pods-GitHub.debug.xcconfig */,
 				C6F6C576093531DD39A08D01 /* Pods-GitHub.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -94,8 +105,13 @@
 		BF562850224B669200578B06 /* GitHub */ = {
 			isa = PBXGroup;
 			children = (
+				BF562873224B782200578B06 /* UI */,
 				BF562851224B669200578B06 /* AppDelegate.swift */,
-				BF562853224B669200578B06 /* ViewController.swift */,
+				BF562853224B669200578B06 /* LoginViewController.swift */,
+				BF562871224B75FD00578B06 /* RepoTableViewController.swift */,
+				BF562878224B875200578B06 /* NewRepoViewController.swift */,
+				BF562876224B81C100578B06 /* RepoViewController.swift */,
+				BF56287D224BCF1E00578B06 /* CommitTableViewController.swift */,
 				BF562855224B669200578B06 /* Main.storyboard */,
 				BF562858224B669200578B06 /* Assets.xcassets */,
 				BF56285A224B669200578B06 /* LaunchScreen.storyboard */,
@@ -111,6 +127,15 @@
 				BF562868224B669300578B06 /* Info.plist */,
 			);
 			path = GitHubTests;
+			sourceTree = "<group>";
+		};
+		BF562873224B782200578B06 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BF562874224B785300578B06 /* RepoTableViewCell.swift */,
+				BF56287B224BC74A00578B06 /* CommitTableViewCell.swift */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		DFF3E79497A95B20EA4B9757 /* Frameworks */ = {
@@ -275,8 +300,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF562854224B669200578B06 /* ViewController.swift in Sources */,
+				BF56287A224B8BF000578B06 /* NewRepoViewController.swift in Sources */,
+				BF562854224B669200578B06 /* LoginViewController.swift in Sources */,
+				BF56287E224BCF1E00578B06 /* CommitTableViewController.swift in Sources */,
+				BF562872224B75FD00578B06 /* RepoTableViewController.swift in Sources */,
 				BF562852224B669200578B06 /* AppDelegate.swift in Sources */,
+				BF562877224B81C100578B06 /* RepoViewController.swift in Sources */,
+				BF562875224B785300578B06 /* RepoTableViewCell.swift in Sources */,
+				BF56287C224BC74A00578B06 /* CommitTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
