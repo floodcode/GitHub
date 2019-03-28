@@ -33,7 +33,13 @@ class NewRepoViewController: UIViewController {
     }
 
     @IBAction func save(_ sender: Any) {
-        dismiss(animated: true)
+        let name = nameTextField.text ?? ""
+        let description = descriptionTextField.text ?? ""
+        let priv = visibilitySegmentedControl.selectedSegmentIndex == 0
+
+        Global.shared.github.createRepo(name: name, description: description, priv: priv) { response in
+            self.dismiss(animated: true)
+        }
     }
 
     // MARK: - Private methods
@@ -46,6 +52,8 @@ class NewRepoViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }

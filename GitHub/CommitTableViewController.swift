@@ -14,8 +14,20 @@ class CommitTableViewController: UITableViewController {
 
     let rowHeight: CGFloat = 64
 
+    var user: String!
+    var repo: String!
+
+    var indicator = UIActivityIndicatorView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        indicator.style = .gray
+        indicator.center = self.view.center
+        self.view.addSubview(indicator)
+
+        updateData()
     }
 
     // MARK: - Table view data source
@@ -25,14 +37,20 @@ class CommitTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return Global.shared.commits[commitKey()]!.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommitTableViewCell", for: indexPath) as! CommitTableViewCell
 
-        cell.messageLabel.text = "Commit #\(indexPath.row + 1)"
-        cell.hashLabel.text = "1d3ea3d7"
+        let commits = Global.shared.commits[commitKey()]
+        let commit = commits![indexPath.row]
+        let hashIndex = commit.hash.index(commit.hash.startIndex, offsetBy: 7)
+
+        cell.messageLabel.text = commit.message
+        cell.hashLabel.text = String(commit.hash[..<hashIndex])
+        cell.authorLabel.text = commit.author
+        cell.dateLabel.text = commit.date
 
         return cell
     }
@@ -41,49 +59,32 @@ class CommitTableViewController: UITableViewController {
         return rowHeight
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    // MARK: - Private methods
+
+    private func commitKey() -> String {
+        return user + ":" + repo
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    private func updateData() {
+        if Global.shared.commits[commitKey()] == nil {
+            Global.shared.commits[commitKey()] = [Commit]()
+        }
+
+        indicator.startAnimating()
+        indicator.backgroundColor = UIColor.white
+
+        Global.shared.github.listCommits(user: user, repo: repo) { response in
+
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)") // original server data as UTF8 string
+            }
+
+            Global.shared.commits[self.commitKey()] = Commit.collection(response.result.value as! NSArray)
+            self.tableView.reloadData()
+
+            self.indicator.stopAnimating()
+            self.indicator.hidesWhenStopped = true
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

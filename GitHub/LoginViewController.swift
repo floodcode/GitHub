@@ -25,13 +25,23 @@ class LoginViewController: UIViewController {
         emailTextField.delegate = self
         passwordTextField.delegate = self
 
+        if Global.shared.github.reauth() {
+            self.performSegue(withIdentifier: "login", sender: self)
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        emailTextField.text = ""
+        passwordTextField.text = ""
+        emailTextField.becomeFirstResponder()
+
         updateLoginButtonState()
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        emailTextField.text = ""
-        passwordTextField.text = ""
-        updateLoginButtonState()
+    // MARK: - Actions
+
+    @IBAction func login(_ sender: Any) {
+        performLogin()
     }
 
     // MARK: - Private methods
@@ -45,6 +55,18 @@ class LoginViewController: UIViewController {
 
     private func performLogin() {
         // Login routine
+        let emailText = emailTextField.text ?? ""
+        let passwordText = passwordTextField.text ?? ""
+
+        Global.shared.github.auth(user: emailText, password: passwordText, handler: { [unowned self] ok in
+            if ok {
+                self.performSegue(withIdentifier: "login", sender: self)
+            } else {
+                let alert = UIAlertController(title: "GitHub", message: "Login or password is incorrect", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true)
+            }
+        })
     }
 
 }
@@ -54,11 +76,12 @@ class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        passwordTextField.resignFirstResponder()
+
         switch textField {
         case emailTextField:
             passwordTextField.becomeFirstResponder()
         case passwordTextField:
-            passwordTextField.resignFirstResponder()
             performLogin()
         default:
             os_log("Unexpected text field in LoginViewController", log: .default, type: .error)

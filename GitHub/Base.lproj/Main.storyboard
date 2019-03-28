@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ba7-MG-WsD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MD4-Dr-YTN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="hWG-Dt-uPM">
             <objects>
-                <navigationController id="MD4-Dr-YTN" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Login" id="MD4-Dr-YTN" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pPC-Ej-Pkd">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -29,7 +29,7 @@
         <!--Navigation Controller-->
         <scene sceneID="hj1-UJ-PSa">
             <objects>
-                <navigationController id="ba7-MG-WsD" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RepoList" id="ba7-MG-WsD" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ztD-oH-Tgc">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -53,7 +53,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Os-fQ-f9e">
                                 <rect key="frame" x="8" y="72" width="114.5" height="37"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watches: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gM-4c-UtW">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watchers: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gM-4c-UtW">
                                         <rect key="frame" x="8" y="8" width="106.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -117,7 +117,7 @@
                                     <constraint firstAttribute="height" constant="32" id="zg1-Ex-6HO"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name (@username)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyR-l3-kos">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyR-l3-kos">
                                 <rect key="frame" x="56" y="152" width="319" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -173,6 +173,15 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="authorImageView" destination="Vwf-au-Ed3" id="GUd-g4-xGd"/>
+                        <outlet property="authorLabel" destination="NyR-l3-kos" id="npi-97-3xJ"/>
+                        <outlet property="commitsButton" destination="KLW-Tl-ZSt" id="zTN-MJ-MJs"/>
+                        <outlet property="descriptionLabel" destination="QqI-cU-Lwa" id="wM0-WZ-5Eb"/>
+                        <outlet property="forksLabel" destination="LEs-2C-HqF" id="hPf-et-HLh"/>
+                        <outlet property="starsLabel" destination="Jyr-gi-0Me" id="K3p-yh-22C"/>
+                        <outlet property="watchersLabel" destination="6gM-4c-UtW" id="yl0-c7-a5O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qTD-fk-1PA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -233,6 +242,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="authorLabel" destination="z6m-zS-fXQ" id="BvC-uq-xKh"/>
+                                    <outlet property="dateLabel" destination="Zb4-qn-xiH" id="wXS-Na-IGC"/>
                                     <outlet property="hashLabel" destination="Y16-Lg-KdY" id="sfP-cv-GN7"/>
                                     <outlet property="messageLabel" destination="SDS-Ox-ZNZ" id="ZyE-HR-ptt"/>
                                 </connections>
@@ -277,12 +288,14 @@
                                         <constraint firstItem="dhX-VJ-mA3" firstAttribute="top" secondItem="LGE-Xq-cpP" secondAttribute="topMargin" id="cBW-8e-ycv"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dhX-VJ-mA3" secondAttribute="trailing" id="s09-rC-Tn7"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="repoNameLabel" destination="dhX-VJ-mA3" id="Os0-yb-Rcu"/>
-                                    <segue destination="ban-EU-cVe" kind="show" id="hz0-aD-gf2"/>
+                                    <outletCollection property="gestureRecognizers" destination="CJP-1d-uRP" appends="YES" id="DUw-Sa-4NJ"/>
+                                    <segue destination="ban-EU-cVe" kind="show" identifier="ShowRepository" id="hz0-aD-gf2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -305,6 +318,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I9i-VK-p4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="CJP-1d-uRP"/>
             </objects>
             <point key="canvasLocation" x="38" y="797"/>
         </scene>
@@ -390,7 +404,7 @@
                                 <rect key="frame" x="20" y="113" width="335" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hJ-u6-i1M">
                                 <rect key="frame" x="20" y="151" width="74" height="21"/>
@@ -402,13 +416,13 @@
                                 <rect key="frame" x="20" y="180" width="335" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Dg-56-BFf">
                                 <rect key="frame" x="20" y="218" width="42" height="30"/>
                                 <state key="normal" title="Log In"/>
                                 <connections>
-                                    <segue destination="ba7-MG-WsD" kind="show" id="whh-Vf-lJp"/>
+                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TPy-em-DlI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -437,6 +451,7 @@
                         <outlet property="emailTextField" destination="gHE-bq-Phe" id="pYA-fM-UhI"/>
                         <outlet property="loginButton" destination="9Dg-56-BFf" id="le0-d7-ozY"/>
                         <outlet property="passwordTextField" destination="rkG-WS-Vqa" id="lyP-wJ-Sto"/>
+                        <segue destination="ba7-MG-WsD" kind="show" identifier="login" id="7jw-bk-LCp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
